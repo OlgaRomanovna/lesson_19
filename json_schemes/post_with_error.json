@@ -1,0 +1,12 @@
+{
+  "title": "request_with_error",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "error"
+  ]
+}

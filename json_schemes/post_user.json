@@ -1,0 +1,16 @@
+{
+  "title": "create_user",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "createdAt"
+  ]
+}
