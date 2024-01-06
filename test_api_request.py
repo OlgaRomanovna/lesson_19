@@ -14,7 +14,7 @@ def test_get_single_user_successfully():
     jsonschema.validate(result.json(), schema)
 
 
-def test_post_create_201_succesfully():
+def test_post_create_succesfully():
     url = "https://reqres.in/api/users"
     schema = load_schema("json_schemes/post_user.json")
 
@@ -24,7 +24,7 @@ def test_post_create_201_succesfully():
     jsonschema.validate(result.json(), schema)
 
 
-def test_put_update_200_succesfully():
+def test_put_update_succesfully():
     url = "https://reqres.in/api/users/2"
     schema = load_schema("json_schemes/put_user.json")
 
@@ -34,7 +34,7 @@ def test_put_update_200_succesfully():
     jsonschema.validate(result.json(), schema)
 
 
-def test_delete_204_succesfully():
+def test_delete_succesfully():
     url = "https://reqres.in/api/users/2"
 
     result: Response = requests.delete(url)
@@ -42,15 +42,16 @@ def test_delete_204_succesfully():
     assert result.status_code == 204
 
 
-def test_get_single_user_not_found_404_unsuccessfully():
+def test_get_single_user_not_found_unsuccessfully():
     url = "https://reqres.in/api/users/23"
 
     result: Response = requests.get(url)
 
     assert result.status_code == 404
+    assert result.json() == {}
 
 
-def test_post_register_400_unsuccessfully():
+def test_post_register_unsuccessfully():
     url = "https://reqres.in/api/register"
     schema = load_schema("json_schemes/post_with_error.json")
 
